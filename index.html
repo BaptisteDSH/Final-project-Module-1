@@ -3,10 +3,46 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Unlock&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./styles/style.css" />
-    <title>Name of My Game ?</title>
+    <title>Shadow Sprint</title>
   </head>
   <body>
+    <main>
+      <!-- Game intro-screen -->
+      <div id="intro-screen">
+        <div class="container-start">
+          <h1 class="game-name">SHADOW SPRINT</h1>
+          <div class="inside-container-start">
+            <button id="start-button">Start Game</button>
+            <p>Push Space to jump over the obstacles</p>
+          </div>
+        </div>
+      </div>
+      <!-- game-screen -->
+      <div id="game-container">
+        <div id="game-screen"></div>
+        <div id="stats">
+          <p>Score: <span id="score">0</span></p>
+          <p>Lives: <span id="lives">3</span></p>
+        </div>
+      </div>
+
+      <!-- game end-screen -->
+      <div id="end-screen">
+        <div class="container-end">
+          <h1 class="h1-end">Game Over</h1>
+          <div class="inside-container-end">
+            <button id="restart-button">Restart</button>
+          </div>
+        </div>
+      </div>
+    </main>
     <script type="text/javascript" src="js/obstacle.js"></script>
     <script type="text/javascript" src="js/player.js"></script>
     <script type="text/javascript" src="js/game.js"></script>

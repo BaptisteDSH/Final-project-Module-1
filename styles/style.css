@@ -1,0 +1,183 @@
+body {
+  padding: 0;
+  text-align: center;
+  margin: 0;
+}
+
+.unlock-regular {
+  font-family: "Unlock", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+#game-screen {
+  height: 940px;
+  background-size: 250% 100%; /* Image triplée en largeur pour permettre un défilement fluide */
+  align-content: center;
+  padding: 20px 0px;
+  overflow: hidden;
+  position: relative;
+  background-image: url(../images/background-game.jpg);
+  animation: slide-left 15s linear infinite; /* Animation un peu plus lente pour le triple fond */
+}
+
+@keyframes slide-left {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 0; /* Défile jusqu'au bout des 300% de largeur */
+  }
+}
+
+#game-container {
+  display: none;
+}
+
+#stats {
+  font-family: "unlock";
+  font-size: 30px;
+  color: #593a3a;
+  position: absolute;
+  top: 0;
+  right: 0;
+  /* Optionnel : ajouter des marges pour ajuster l'espacement */
+  margin: 0 30px;
+}
+
+#intro-screen {
+  background-image: url("../images/start-screen.jpg");
+  background-size: cover;
+  height: 990px;
+}
+
+#end-screen {
+  background-image: url(../images/end-screen.jpg);
+  background-size: cover;
+  height: 990px;
+  display: none;
+}
+
+.container-end {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-left: 300px;
+  padding-top: 200px;
+}
+
+.inside-container-end {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 90px;
+}
+.container-start p {
+  font-family: "unlock";
+  font-size: 15 px;
+}
+
+.container-start {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-left: 230px;
+  padding-top: 290px;
+}
+
+.inside-container-start {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 80px;
+}
+
+#start-button {
+  appearance: none;
+  background-color: #000000;
+  border: 2px solid #1a1a1a;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-height: 60px;
+  min-width: 0;
+  outline: none;
+  padding: 16px 24px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+  will-change: transform;
+}
+
+.game-name {
+  font-family: "unlock";
+  font-size: 60px;
+  font-weight: bold;
+  color: black;
+}
+
+.h1-end {
+  color: #ffffff;
+  font-size: 60px;
+}
+
+#restart-button {
+  appearance: none;
+  background-color: #ffffff;
+  border: 4px solid #1a1a1a;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: black;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-height: 60px;
+  min-width: 0;
+  outline: none;
+  padding: 16px 24px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+  will-change: transform;
+}
+.container-end {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-left: 450px;
+  padding-top: 250px;
+}
+
+.inside-container-end {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 90px;
+}
