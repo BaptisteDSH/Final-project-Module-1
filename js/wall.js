@@ -1,13 +1,13 @@
-class Obstacle {
+class Wall {
   constructor(gameScreen) {
     this.gameScreen = gameScreen;
-    this.left = 1850;
-    this.top = 540;
-    this.width = 150;
-    this.height = 150;
+    this.left = 1900;
+    this.top = 0;
+    this.width = 450;
+    this.height = 735;
     //this is creating the player and adding them to the screen
     this.element = document.createElement("img");
-    this.element.src = "../images/Wooden_Barrel.png";
+    this.element.src = "../images/wall.png";
     this.element.style.position = "absolute";
     this.element.style.height = `${this.height}px`;
     this.element.style.width = `${this.width}px`;
@@ -21,7 +21,7 @@ class Obstacle {
   }
 
   move() {
-    this.left -= 12;
+    this.left -= 10;
     this.updatePosition();
   }
 

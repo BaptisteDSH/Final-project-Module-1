@@ -5,10 +5,12 @@ class Game {
     this.gameEndScreen = document.getElementById("end-screen");
     this.scoreElement = document.getElementById("score");
     this.livesElement = document.getElementById("lives");
+    this.livesElement.src = "images/threeheart.png";
     this.player = new Player(500, 200, "../images/ninja.png");
     this.height = 600;
     // this.width = 1450;
-    this.obstacles = [new Obstacle(this.gameScreen)];
+    this.obstacles = [];
+    this.wall = [];
     this.shuriken = [];
     this.score = 0;
     this.lives = 3;
@@ -43,8 +45,12 @@ class Game {
       this.gameOver();
     }
 
-    if (this.frame % 180 === 0) {
+    if (this.frame % 160 === 0) {
       this.obstacles.push(new Obstacle(this.gameScreen));
+    }
+
+    if (this.frame % 220 === 0) {
+      this.wall.push(new Wall(this.gameScreen));
     }
   }
 
@@ -96,29 +102,65 @@ class Game {
         this.scoreElement.innerText = this.score;
       }
     });
+    this.wall.forEach((oneWall, oneWallIndex) => {
+      oneWall.move();
+      //this checks each oneObstacle if it collided with my player
+      const didHitMe = this.player.didCollide(oneWall);
+      //if the red car hits my car, based on the didCollide method
+      //then we subtract a life, remove the car from the array (splice), and remember to remove from the DOM
+      console.log("did it hit???", didHitMe);
+      //conditional checking when there is a collision
+      if (didHitMe) {
+        //subtract a life
+        this.lives--;
+        if (this.lives === 0) {
+          this.gameIsOver = true;
+          console.log("loose");
+        }
+        //update the lives DOM to the new value
+        this.livesElement.innerText = this.lives;
+        //splice the obstacle out of the array
+        this.wall.splice(oneWallIndex, 1);
+        //remove the red car from the DOM
+        oneWall.element.remove();
+      }
+
+      //check that the barril passes the left corner
+      //then remove the barril from the array and the DOM
+      // if (oneObstacle.left + oneObstacle.width < 0) {
+      //   //splice removes object from the array
+      //   this.obstacles.splice(oneObstacleIndex, 1);
+      //   //.remove method removes the barril the game screen
+      //   oneObstacle.element.remove();
+      //   //increase the score when the barril passes
+      //   this.score++;
+      //   //update the DOM to have the new score
+      //   this.scoreElement.innerText = this.score;
+      // }
+    });
     // Shuriken
 
     this.shuriken.forEach((oneShuriken, shurikenIndex) => {
       oneShuriken.move();
       //check that the Shuriken passes the right corner
       //then remove the Shuriken from the array and the DOM
-      if (oneShuriken.left + oneShuriken.width > 1500) {
+      if (oneShuriken.left + oneShuriken.width > 1900) {
         //splice removes object from the array
         this.shuriken.splice(shurikenIndex, 1);
         //.remove method removes the barril the game screen
         oneShuriken.element.remove();
       }
-      this.obstacles.forEach((oneObstacle, obstacleIndex) => {
+      this.wall.forEach((oneWall, wallIndex) => {
         // check if the shuriken collided with an obstacle
-        if (oneShuriken.didCollide(oneObstacle)) {
+        if (oneShuriken.didCollide(oneWall)) {
           //splice removes object from the array
           this.shuriken.splice(shurikenIndex, 1);
           //.remove method removes the car the game screen
           oneShuriken.element.remove();
           //splice removes object from the array
-          this.obstacles.splice(obstacleIndex, 1);
+          this.wall.splice(wallIndex, 1);
           //.remove method removes the barril the game screen
-          oneObstacle.element.remove();
+          oneWall.element.remove();
           //increase the score when the barril passes
           this.score++;
           //update the DOM to have the new score

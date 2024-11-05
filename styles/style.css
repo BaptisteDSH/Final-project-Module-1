@@ -206,3 +206,8 @@ body {
     transform: rotate(360deg);
   }
 }
+
+#lives img {
+  width: 200px;
+  height: auto;
+}
