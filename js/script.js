@@ -17,7 +17,7 @@ window.onload = function () {
       !myGame.player.isJumping &&
       myGame.player.isOnGround
     ) {
-      myGame.player.directionY = -16; // Force du saut
+      myGame.player.directionY = -14; // Force du saut
       myGame.player.isOnGround = false; // Le joueur n'est pas au sol
       myGame.player.isJumping = true; // Marquer que le joueur est en train de sauter
 
@@ -28,7 +28,21 @@ window.onload = function () {
         myGame.player.isJumping = false; // Le saut est terminé
         myGame.player.directionY = 0; // Réinitialisez la direction Y
         console.log("Atterrissage !");
-      }, 1500); // Durée du saut
+      }, 1000); // Durée du saut
+    }
+    if (event.code === "KeyS" && !myGame.player.isShooting) {
+      const shurikenLeft = myGame.player.left + 200;
+      const shurikenTop = myGame.player.top + 150;
+      myGame.shuriken.push(new Shuriken(shurikenLeft, shurikenTop));
+      myGame.player.isShooting = true;
+      setTimeout(() => {
+        myGame.player.isShooting = false;
+      }, 1000);
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.code === "ArrowRight") {
     }
   });
 

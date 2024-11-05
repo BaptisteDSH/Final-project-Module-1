@@ -3,8 +3,8 @@ class Obstacle {
     this.gameScreen = gameScreen;
     this.positions = [23, 76, 98, 21, 65];
     this.randomIndex = Math.floor(Math.round() * this.positions.length);
-    this.left = 2000;
-    this.top = 800;
+    this.left = 1450;
+    this.top = 540;
     this.width = 150;
     this.height = 150;
     //this is creating the player and adding them to the screen

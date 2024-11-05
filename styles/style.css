@@ -2,6 +2,7 @@ body {
   padding: 0;
   text-align: center;
   margin: 0;
+  background-color: black;
 }
 
 .unlock-regular {
@@ -11,14 +12,19 @@ body {
 }
 
 #game-screen {
-  height: 940px;
+  height: 730px;
+  width: 1450;
   background-size: 250% 100%; /* Image triplée en largeur pour permettre un défilement fluide */
   align-content: center;
-  padding: 20px 0px;
+  justify-content: center;
+  padding: 0px 0px;
   overflow: hidden;
   position: relative;
   background-image: url(../images/background-game.jpg);
   animation: slide-left 15s linear infinite; /* Animation un peu plus lente pour le triple fond */
+  /* margin: 80px 0 200px 0; */
+  border-top: 4px solid #000000;
+  border-bottom: 4px solid #000000;
 }
 
 @keyframes slide-left {
@@ -36,13 +42,20 @@ body {
 
 #stats {
   font-family: "unlock";
-  font-size: 30px;
-  color: #593a3a;
+  font-size: 40px;
+  color: whitesmoke;
   position: absolute;
-  top: 0;
+  top: 16px;
   right: 0;
   /* Optionnel : ajouter des marges pour ajuster l'espacement */
-  margin: 0 30px;
+  border: 3px solid whitesmoke;
+  border-radius: 20%;
+  padding: 10px;
+  margin-right: 20px;
+}
+
+#stats p {
+  margin: 20px 40px;
 }
 
 #intro-screen {
@@ -84,7 +97,7 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  margin-left: 230px;
+  margin-left: 200px;
   padding-top: 290px;
 }
 
@@ -180,4 +193,16 @@ body {
   justify-content: center;
   align-items: center;
   margin-left: 90px;
+}
+
+.shuriken-class {
+  animation: rotate360 0.85s infinite linear;
+}
+@keyframes rotate360 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

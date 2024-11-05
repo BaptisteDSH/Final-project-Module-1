@@ -1,23 +1,19 @@
-class Player {
-  constructor(top, left, imgSrc) {
+class Shuriken {
+  constructor(positionX, positionY) {
     this.gameScreen = document.getElementById("game-container");
-    this.left = left;
-    this.top = top;
-    this.width = 240;
-    this.height = 300;
-    this.directionX = 0;
-    this.directionY = 0;
-    this.isOnGround = true;
-    this.isJumping = false;
-    this.isShooting = false;
+    this.left = positionX;
+    this.top = positionY;
+    this.width = 60;
+    this.height = 65;
     //this is creating the player and adding them to the screen
     this.element = document.createElement("img");
-    this.element.src = imgSrc;
+    this.element.src = "../images/shuriken.png";
     this.element.style.position = "absolute";
     this.element.style.height = `${this.height}px`;
     this.element.style.width = `${this.width}px`;
     this.element.style.top = `${this.top}px`;
     this.element.style.left = `${this.left}px`;
+    this.element.classList.add("shuriken-class");
     // Dans la classe Obstacle, par exemple dans le constructeur
     // this.element.style.border = "2px solid red"; // Ajouter une bordure rouge pour visualiser la hitbox
 
@@ -26,16 +22,12 @@ class Player {
   }
 
   move() {
-    this.top += this.directionY;
-    this.top += this.directionX;
-    if (this.top + this.height > 700) {
-      this.top = 700 - this.height;
-    }
+    this.left += 6;
     this.updatePosition();
   }
 
   updatePosition() {
-    this.element.style.top = `${this.top}px`;
+    this.element.style.left = `${this.left}px`;
   }
 
   didCollide(obstacle) {
@@ -51,12 +43,6 @@ class Player {
       return true;
     } else {
       return false;
-    }
-  }
-
-  applyGravity() {
-    if (!this.isOnGround) {
-      this.directionY += 0.5;
     }
   }
 }
