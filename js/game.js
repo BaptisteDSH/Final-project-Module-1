@@ -16,7 +16,7 @@ class Game {
     this.bees = [];
     this.shuriken = [];
     this.score = 0;
-    this.lives = 3;
+    this.lives = 30;
     this.gameIsOver = false;
     this.gameIntervalId = null;
     this.gameLoopFrequency = Math.round(1000 / 60);
@@ -74,7 +74,7 @@ class Game {
       this.wall.push(new Wall(this.gameScreen));
     }
 
-    if (this.frame % 820 === 0) {
+    if (this.frame % 890 === 0) {
       this.bees.push(new Bees(this.gameScreen));
     }
   }
@@ -271,6 +271,25 @@ class Game {
           this.wall.splice(wallIndex, 1);
           //.remove method removes the barril the game screen
           oneWall.element.remove();
+          //increase the score when the barril passes
+          this.score++;
+          //update the DOM to have the new score
+          this.scoreElement.innerText = this.score;
+        }
+      });
+
+      this.bees.forEach((oneBees, beesIndex) => {
+        // check if the shuriken collided with an obstacle
+        if (oneShuriken.didCollide(oneBees)) {
+          this.break.play();
+          //splice removes object from the array
+          this.shuriken.splice(shurikenIndex, 1);
+          //.remove method removes the car the game screen
+          oneShuriken.element.remove();
+          //splice removes object from the array
+          this.bees.splice(beesIndex, 1);
+          //.remove method removes the barril the game screen
+          oneBees.element.remove();
           //increase the score when the barril passes
           this.score++;
           //update the DOM to have the new score
