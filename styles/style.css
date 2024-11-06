@@ -64,6 +64,10 @@ body {
   height: 775px;
 }
 
+.command {
+  margin: 0px;
+}
+
 #end-screen {
   background-image: url(../images/end-screen.jpg);
   background-size: cover;
