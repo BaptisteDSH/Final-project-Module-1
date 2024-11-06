@@ -11,8 +11,8 @@ class Player {
     this.isJumping = false;
     this.isShooting = false;
     //adding audios
-    this.jump = new Audio("../sounds/jump-sound.mp3");
-    this.throw = new Audio("../sounds/shuriken-throw.mp3");
+    this.jump = new Audio("sounds/jump-sound.mp3");
+    this.throw = new Audio("sounds/shuriken-throw.mp3");
     this.jump.volume = 0.1;
     this.throw.volume = 0.1;
     //this is creating the player and adding them to the screen

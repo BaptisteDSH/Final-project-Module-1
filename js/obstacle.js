@@ -7,7 +7,7 @@ class Obstacle {
     this.height = 150;
     //this is creating the player and adding them to the screen
     this.element = document.createElement("img");
-    this.element.src = "../images/Wooden_Barrel.png";
+    this.element.src = "images/barrel.png";
     this.element.style.position = "absolute";
     this.element.style.height = `${this.height}px`;
     this.element.style.width = `${this.width}px`;
@@ -21,7 +21,7 @@ class Obstacle {
   }
 
   move() {
-    this.left -= 12;
+    this.left -= 14;
     this.updatePosition();
   }
 

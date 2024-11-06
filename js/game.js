@@ -7,11 +7,13 @@ class Game {
     this.scoreElement = document.getElementById("score");
     this.livesElement = document.getElementById("lives");
     this.livesElement.src = "images/threeheart.png";
-    this.player = new Player(500, 200, "../images/ninja.png");
+    this.player = new Player(500, 200, "images/ninja.png");
     this.height = 600;
     // this.width = 1450;
     this.obstacles = [];
+    this.box = [];
     this.wall = [];
+    this.bees = [];
     this.shuriken = [];
     this.score = 0;
     this.lives = 3;
@@ -20,10 +22,10 @@ class Game {
     this.gameLoopFrequency = Math.round(1000 / 60);
     this.frame = 0;
     // adding audio
-    this.gameOverMusic = new Audio("../sounds/game-over.mp3");
-    this.gameMusic = new Audio("../sounds/music-background.mp3");
-    this.hit = new Audio("../sounds/hit.mp3");
-    this.break = new Audio("../sounds/break.mp3");
+    this.gameOverMusic = new Audio("sounds/game-over.mp3");
+    this.gameMusic = new Audio("sounds/music-background.mp3");
+    this.hit = new Audio("sounds/hit.mp3");
+    this.break = new Audio("sounds/break.mp3");
     this.hit.volume = 0.1;
     this.gameOverMusic.volume = 0.1;
     this.gameMusic.volume = 0.1;
@@ -60,12 +62,20 @@ class Game {
       this.gameOver();
     }
 
-    if (this.frame % 160 === 0) {
+    if (this.frame % 280 === 0) {
       this.obstacles.push(new Obstacle(this.gameScreen));
     }
 
-    if (this.frame % 220 === 0) {
+    if (this.frame % 370 === 0) {
+      this.box.push(new Box(this.gameScreen));
+    }
+
+    if (this.frame % 500 === 0) {
       this.wall.push(new Wall(this.gameScreen));
+    }
+
+    if (this.frame % 820 === 0) {
+      this.bees.push(new Bees(this.gameScreen));
     }
   }
 
@@ -119,6 +129,84 @@ class Game {
         //update the DOM to have the new score
         this.scoreElement.innerText = this.score;
       }
+    });
+    this.box.forEach((oneBox, oneBoxIndex) => {
+      oneBox.move();
+      //this checks each oneObstacle if it collided with my player
+      const didHitMe = this.player.didCollide(oneBox);
+      //if the red car hits my car, based on the didCollide method
+      //then we subtract a life, remove the car from the array (splice), and remember to remove from the DOM
+      console.log("did it hit???", didHitMe);
+      //conditional checking when there is a collision
+      if (didHitMe) {
+        //subtract a life
+        this.lives--;
+        this.hit.play();
+        if (this.lives === 0) {
+          this.gameIsOver = true;
+          console.log("loose");
+        }
+        //update the lives DOM to the new value (this is for the number as a life)
+        // this.livesElement.innerText = this.lives;
+        // update the lives DOM with an image instead
+        this.updateLifeHearts();
+        //splice the obstacle out of the array
+        this.box.splice(oneBoxIndex, 1);
+        //remove the red car from the DOM
+        oneBox.element.remove();
+      }
+
+      //check that the barril passes the left corner
+      //then remove the barril from the array and the DOM
+      if (oneBox.left + oneBox.width < 0) {
+        //splice removes object from the array
+        this.box.splice(oneBoxIndex, 1);
+        //.remove method removes the barril the game screen
+        oneBox.element.remove();
+        //increase the score when the barril passes
+        this.score++;
+        //update the DOM to have the new score
+        this.scoreElement.innerText = this.score;
+      }
+    });
+    this.bees.forEach((oneBees, oneBeesIndex) => {
+      oneBees.move();
+      //this checks each oneObstacle if it collided with my player
+      const didHitMe = this.player.didCollide(oneBees);
+      //if the red car hits my car, based on the didCollide method
+      //then we subtract a life, remove the car from the array (splice), and remember to remove from the DOM
+      console.log("did it hit???", didHitMe);
+      //conditional checking when there is a collision
+      if (didHitMe) {
+        //subtract a life
+        this.lives--;
+        this.hit.play();
+        if (this.lives === 0) {
+          this.gameIsOver = true;
+          console.log("loose");
+        }
+        //update the lives DOM to the new value (this is for the number as a life)
+        // this.livesElement.innerText = this.lives;
+        // update the lives DOM with an image instead
+        this.updateLifeHearts();
+        //splice the obstacle out of the array
+        this.bees.splice(oneBeesIndex, 1);
+        //remove the red car from the DOM
+        oneBees.element.remove();
+      }
+
+      //check that the barril passes the left corner
+      //then remove the barril from the array and the DOM
+      // if (oneObstacle.left + oneObstacle.width < 0) {
+      //   //splice removes object from the array
+      //   this.obstacles.splice(oneObstacleIndex, 1);
+      //   //.remove method removes the barril the game screen
+      //   oneObstacle.element.remove();
+      //   //increase the score when the barril passes
+      //   this.score++;
+      //   //update the DOM to have the new score
+      //   this.scoreElement.innerText = this.score;
+      // }
     });
     this.wall.forEach((oneWall, oneWallIndex) => {
       oneWall.move();

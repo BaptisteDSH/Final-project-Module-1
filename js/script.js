@@ -18,7 +18,7 @@ window.onload = function () {
       myGame.player.isOnGround
     ) {
       myGame.player.jump.play();
-      myGame.player.directionY = -14; // Force du saut
+      myGame.player.directionY = -14.5; // Force du saut
       myGame.player.isOnGround = false; // Le joueur n'est pas au sol
       myGame.player.isJumping = true; // Marquer que le joueur est en train de sauter
 

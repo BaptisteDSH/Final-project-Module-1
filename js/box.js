@@ -1,13 +1,13 @@
-class Wall {
+class Box {
   constructor(gameScreen) {
     this.gameScreen = gameScreen;
-    this.left = 1900;
-    this.top = 300;
-    this.width = 400;
-    this.height = 400;
+    this.left = 1850;
+    this.top = 540;
+    this.width = 150;
+    this.height = 150;
     //this is creating the player and adding them to the screen
     this.element = document.createElement("img");
-    this.element.src = "images/wall.png";
+    this.element.src = "images/box.png";
     this.element.style.position = "absolute";
     this.element.style.height = `${this.height}px`;
     this.element.style.width = `${this.width}px`;
@@ -21,7 +21,7 @@ class Wall {
   }
 
   move() {
-    this.left -= 10;
+    this.left -= 13;
     this.updatePosition();
   }
 
