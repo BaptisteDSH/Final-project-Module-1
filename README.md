@@ -10,11 +10,16 @@ Shadow Sprint is a 2D side-scroller game where you control a samurai sprinting a
 
 ## Main Features
 
-- **Automatic Forward Movement**: The samurai advances automatically, allowing players to focus on timing jumps and attacks.
 - **Jumping**: Press `space` to make the samurai jump and dodge obstacles.
 - **Shuriken Attack**: Press `s` to throw shurikens at approaching monsters and clear the path.
 - **Score System**: Earn points by avoiding obstacles and defeating enemies, and strive to beat the high score.
 - **Game Over**: Collisions with obstacles or enemies end the game, challenging players to try again for a better score.
+
+## Backlog Functionalities
+
+- **Adding different types of obstacles**
+- **Adding different types of creatures**
+- **Making the game**
 
 ## Key Game Files and Classes
 
@@ -58,6 +63,12 @@ These folders contain all image and audio assets used in the game, including:
 - **HTML**
 - **CSS**
 - **JavaScript**
+
+## States
+
+- **Start Screen**
+- **Game Screen**
+- **Game Over Screen**
 
 ## Game Instructions
 
