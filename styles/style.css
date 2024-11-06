@@ -252,3 +252,10 @@ h3 {
   color: #000000;
   margin-left: 25px;
 }
+
+#lives img{
+
+  width: 50px;
+  height: auto;
+
+}

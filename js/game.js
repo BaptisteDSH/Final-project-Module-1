@@ -14,7 +14,7 @@ class Game {
     this.wall = [];
     this.shuriken = [];
     this.score = 0;
-    this.lives = 1;
+    this.lives = 3;
     this.gameIsOver = false;
     this.gameIntervalId = null;
     this.gameLoopFrequency = Math.round(1000 / 60);
@@ -39,6 +39,9 @@ class Game {
     this.startScreen.style.display = "none";
     //show the game screen
     this.gameScreen.style.display = "block";
+
+    //add the img elements to the lives element
+    this.updateLifeHearts();
     // Runs the gameLoop on a fequency of 60 times per second. Also stores the ID of the interval.
     this.gameIntervalId = setInterval(() => {
       this.gameLoop();
@@ -94,8 +97,10 @@ class Game {
           this.gameIsOver = true;
           console.log("loose");
         }
-        //update the lives DOM to the new value
-        this.livesElement.innerText = this.lives;
+        //update the lives DOM to the new value (this is for the number as a life)
+        // this.livesElement.innerText = this.lives;
+        // update the lives DOM with an image instead
+        this.updateLifeHearts();
         //splice the obstacle out of the array
         this.obstacles.splice(oneObstacleIndex, 1);
         //remove the red car from the DOM
@@ -131,8 +136,10 @@ class Game {
           this.gameIsOver = true;
           console.log("loose");
         }
-        //update the lives DOM to the new value
-        this.livesElement.innerText = this.lives;
+        //update the lives DOM to the new value (this is for the number as a life)
+        // this.livesElement.innerText = this.lives;
+        // update the lives DOM with an image instead
+        this.updateLifeHearts();
         //splice the obstacle out of the array
         this.wall.splice(oneWallIndex, 1);
         //remove the red car from the DOM
@@ -215,5 +222,13 @@ class Game {
       liElement.innerText = oneScore;
       this.highScoresElement.appendChild(liElement);
     });
+  }
+  updateLifeHearts() {
+    this.livesElement.innerHTML = "";
+    for (let i = 0; i < this.lives; i++) {
+      const imgElement = document.createElement("img");
+      imgElement.src = "../images/life.png";
+      this.livesElement.appendChild(imgElement);
+    }
   }
 }

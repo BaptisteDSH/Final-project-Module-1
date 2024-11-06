@@ -43,13 +43,6 @@ window.onload = function () {
     }
   });
 
-  document.addEventListener("keydown", (event) => {
-    if (event.code === "ArrowRight") {
-    }
-  });
-
-  //   // when you release a key, stop the player from moving
-
   function startGame() {
     console.log("start game");
     myGame = new Game();
