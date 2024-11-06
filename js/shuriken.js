@@ -7,7 +7,7 @@ class Shuriken {
     this.height = 65;
     //this is creating the player and adding them to the screen
     this.element = document.createElement("img");
-    this.element.src = "../images/shuriken.png";
+    this.element.src = "images/shuriken.png";
     this.element.style.position = "absolute";
     this.element.style.height = `${this.height}px`;
     this.element.style.width = `${this.width}px`;
