@@ -61,13 +61,13 @@ body {
 #intro-screen {
   background-image: url("../images/start-screen.jpg");
   background-size: cover;
-  height: 755px;
+  height: 775px;
 }
 
 #end-screen {
   background-image: url(../images/end-screen.jpg);
   background-size: cover;
-  height: 755px;
+  height: 775px;
   display: none;
 }
 

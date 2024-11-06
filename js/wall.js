@@ -2,7 +2,7 @@ class Wall {
   constructor(gameScreen) {
     this.gameScreen = gameScreen;
     this.left = 1900;
-    this.top = 300;
+    this.top = 320;
     this.width = 400;
     this.height = 400;
     //this is creating the player and adding them to the screen

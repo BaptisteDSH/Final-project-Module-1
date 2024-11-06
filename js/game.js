@@ -7,8 +7,8 @@ class Game {
     this.scoreElement = document.getElementById("score");
     this.livesElement = document.getElementById("lives");
     this.livesElement.src = "images/threeheart.png";
-    this.player = new Player(500, 200, "images/ninja.png");
-    this.height = 600;
+    this.player = new Player(530, 180, "images/ninja.png");
+    this.height = 730;
     // this.width = 1450;
     this.obstacles = [];
     this.box = [];
@@ -315,7 +315,7 @@ class Game {
     this.livesElement.innerHTML = "";
     for (let i = 0; i < this.lives; i++) {
       const imgElement = document.createElement("img");
-      imgElement.src = "../images/life.png";
+      imgElement.src = "images/life.png";
       this.livesElement.appendChild(imgElement);
     }
   }

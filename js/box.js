@@ -2,7 +2,7 @@ class Box {
   constructor(gameScreen) {
     this.gameScreen = gameScreen;
     this.left = 1850;
-    this.top = 540;
+    this.top = 560;
     this.width = 150;
     this.height = 150;
     //this is creating the player and adding them to the screen
