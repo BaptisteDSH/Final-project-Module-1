@@ -13,26 +13,29 @@ body {
 
 #game-screen {
   height: 730px;
-  width: 1450;
-  background-size: 250% 100%;
-  align-content: center;
-  justify-content: center;
-  padding: 0px 0px;
-  overflow: hidden;
-  position: relative;
-  background-image: url(../images/background-game.jpg);
-  animation: slide-left 15s linear infinite; /* Animation un peu plus lente pour le triple fond */
-  /* margin: 80px 0 200px 0; */
+  width: 100%; /* Use a responsive width */
+  background-size: 250% 100%; /* Larger size for a better transition effect */
+  background-image: url(../images/background-game.jpg),
+    url(../images/background3.jpg), url(../images/Background2.jpg);
+  background-repeat: no-repeat;
+  background-position: 0 0, 100% 0, 200% 0; /* Initial positions for each image */
+  animation: cycleBackground 30s linear infinite; /* Adjust timing if necessary */
   border-top: 4px solid #000000;
   border-bottom: 4px solid #000000;
 }
 
-@keyframes slide-left {
+@keyframes cycleBackground {
   0% {
-    background-position: 0 0;
+    background-position: 0 0, 100% 0, 200% 0; /* Initialement, la première image est visible */
+  }
+  33% {
+    background-position: 100% 0, 0 0, 100% 0; /* Déplace la première image vers la gauche */
+  }
+  66% {
+    background-position: 200% 0, 100% 0, 0 0; /* Déplace la deuxième image vers la gauche */
   }
   100% {
-    background-position: 100% 0; /* Défile jusqu'au bout des 300% de largeur */
+    background-position: 300% 0, 200% 0, 100% 0; /* La troisième image devient visible à gauche */
   }
 }
 

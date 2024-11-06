@@ -29,8 +29,6 @@ class Game {
     this.hit.volume = 0.1;
     this.gameOverMusic.volume = 0.1;
     this.gameMusic.volume = 0.1;
-    // this.jump = new Audio("../sounds/jump-sound.mp3");
-    // this.throw = new Audio('../sounds/shuriken-throw.mp3')
   }
   start() {
     this.gameMusic.play();
