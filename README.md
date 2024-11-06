@@ -2,7 +2,8 @@
 
 ![](https://img.freepik.com/vecteurs-libre/batiment-chinois-fond-vectoriel-dessin-anime-rue-ville-maison-ville-chine-lanterne-rouge-pour-illustration-paysage-urbain-festival-nouvel-an-panorama-conception-decoration-architecture-asiatique-traditionnelle_107791-22807.jpg?t=st=1730908088~exp=1730911688~hmac=a9ad76cb4a2c11ab0fd99d861926448f393ca65abced1a9f407aee6391e14879&w=1480)
 
-**Play the Game!** _(Link to be added)_
+**Play the Game!**
+_https://baptistedsh.github.io/Final-project-Module-1/_
 
 ## Description
 
