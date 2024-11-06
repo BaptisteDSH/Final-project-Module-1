@@ -16,7 +16,7 @@ class Game {
     this.bees = [];
     this.shuriken = [];
     this.score = 0;
-    this.lives = 30;
+    this.lives = 3;
     this.gameIsOver = false;
     this.gameIntervalId = null;
     this.gameLoopFrequency = Math.round(1000 / 60);

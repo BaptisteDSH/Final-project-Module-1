@@ -14,7 +14,7 @@ body {
 #game-screen {
   height: 730px;
   width: 1450;
-  background-size: 250% 100%; Image triplée en largeur pour permettre un défilement fluide
+  background-size: 250% 100%;
   align-content: center;
   justify-content: center;
   padding: 0px 0px;
