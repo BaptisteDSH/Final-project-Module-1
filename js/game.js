@@ -3,6 +3,7 @@ class Game {
     this.startScreen = document.getElementById("intro-screen");
     this.gameScreen = document.getElementById("game-container");
     this.gameEndScreen = document.getElementById("end-screen");
+    this.highScoresElement = document.getElementById("high-scores");
     this.scoreElement = document.getElementById("score");
     this.livesElement = document.getElementById("lives");
     this.livesElement.src = "images/threeheart.png";
@@ -13,13 +14,24 @@ class Game {
     this.wall = [];
     this.shuriken = [];
     this.score = 0;
-    this.lives = 3;
+    this.lives = 1;
     this.gameIsOver = false;
     this.gameIntervalId = null;
     this.gameLoopFrequency = Math.round(1000 / 60);
     this.frame = 0;
+    // adding audio
+    this.gameOverMusic = new Audio("../sounds/game-over.mp3");
+    this.gameMusic = new Audio("../sounds/music-background.mp3");
+    this.hit = new Audio("../sounds/hit.mp3");
+    this.break = new Audio("../sounds/break.mp3");
+    this.hit.volume = 0.1;
+    this.gameOverMusic.volume = 0.1;
+    this.gameMusic.volume = 0.1;
+    // this.jump = new Audio("../sounds/jump-sound.mp3");
+    // this.throw = new Audio('../sounds/shuriken-throw.mp3')
   }
   start() {
+    this.gameMusic.play();
     //set the height and width of the game screen
     this.gameScreen.style.height = `${this.height}px`;
     this.gameScreen.style.width = `${this.width}px`;
@@ -77,6 +89,7 @@ class Game {
       if (didHitMe) {
         //subtract a life
         this.lives--;
+        this.hit.play();
         if (this.lives === 0) {
           this.gameIsOver = true;
           console.log("loose");
@@ -113,6 +126,7 @@ class Game {
       if (didHitMe) {
         //subtract a life
         this.lives--;
+        this.hit.play();
         if (this.lives === 0) {
           this.gameIsOver = true;
           console.log("loose");
@@ -153,6 +167,7 @@ class Game {
       this.wall.forEach((oneWall, wallIndex) => {
         // check if the shuriken collided with an obstacle
         if (oneShuriken.didCollide(oneWall)) {
+          this.break.play();
           //splice removes object from the array
           this.shuriken.splice(shurikenIndex, 1);
           //.remove method removes the car the game screen
@@ -171,7 +186,34 @@ class Game {
   }
 
   gameOver() {
+    this.gameMusic.pause();
+    this.gameOverMusic.play();
     this.gameScreen.style.display = "none";
     this.gameEndScreen.style.display = "block";
+
+    //storing the high scores
+    // first, check if there are already scores
+    const scoresInLocalStorage = JSON.parse(localStorage.getItem("highScores"));
+    let topThree = [];
+    if (scoresInLocalStorage) {
+      // this is AFTER the first game when there are scores
+      scoresInLocalStorage.push(this.score);
+      // After I push  your new score, then sort descending
+      scoresInLocalStorage.sort((a, b) => b - a);
+      // after sorting, splice only the first 3 for the top 3 scores
+      topThree = scoresInLocalStorage.slice(0, 3);
+      localStorage.setItem("highScores", JSON.stringify(topThree));
+    } else {
+      //this is the first game with no scores in the local storage
+      topThree = [this.score];
+      localStorage.setItem("highScores", JSON.stringify(topThree));
+    }
+
+    //after setting all the scores, add the scores to the DOM
+    topThree.forEach((oneScore) => {
+      const liElement = document.createElement("li");
+      liElement.innerText = oneScore;
+      this.highScoresElement.appendChild(liElement);
+    });
   }
 }

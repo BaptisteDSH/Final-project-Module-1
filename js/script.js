@@ -17,6 +17,7 @@ window.onload = function () {
       !myGame.player.isJumping &&
       myGame.player.isOnGround
     ) {
+      myGame.player.jump.play();
       myGame.player.directionY = -14; // Force du saut
       myGame.player.isOnGround = false; // Le joueur n'est pas au sol
       myGame.player.isJumping = true; // Marquer que le joueur est en train de sauter
@@ -31,6 +32,7 @@ window.onload = function () {
       }, 1000); // Durée du saut
     }
     if (event.code === "KeyS" && !myGame.player.isShooting) {
+      myGame.player.throw.play();
       const shurikenLeft = myGame.player.left + 200;
       const shurikenTop = myGame.player.top + 150;
       myGame.shuriken.push(new Shuriken(shurikenLeft, shurikenTop));

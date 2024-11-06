@@ -211,3 +211,44 @@ body {
   width: 200px;
   height: auto;
 }
+
+#scores-container {
+  color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  margin-left:  510px;
+}
+
+#high-scores ol {
+  list-style-type: none; /* Supprime les puces par défaut */
+  padding: 0;
+  margin: 0;
+  max-width: 300px;
+  /* margin: 20px auto; Centrer la liste horizontalement */
+  font-family: "Unlock";
+  background-color: #f4f4f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+#high-scores li {
+  background-color: black;
+  margin-bottom: 10px; Espacement entre les éléments
+  /* padding: 5px; */
+  font-size: 18px;
+  border-radius: 5px;
+}
+
+li::marker {
+  color: black;
+  font-family: 'Unlock';
+}
+
+h3 {
+  font-family: 'Unlock';
+  font-size: 20px;
+  color: #000000;
+  margin-left: 25px;
+}
