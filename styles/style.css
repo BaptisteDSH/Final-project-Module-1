@@ -17,10 +17,10 @@ body {
   height: 750px;
   width: 100%;
   background-size: 250% 100%; /* Ajuster la largeur en fonction du nombre d'images */
-  background-image: url("../images/background-game.jpg"),
-    url("../images/background3.jpg"), url("../images/Background2.jpg"),
-    url("../images/background-game.jpg"), url("../images/background3.jpg"),
-    url("../images/Background2.jpg");
+  background-image: url("images/background-game.jpg"),
+    url("images/background3.jpg"), url("images/Background2.jpg"),
+    url("images/background-game.jpg"), url("images/background3.jpg"),
+    url("images/Background2.jpg");
   background-repeat: no-repeat;
   background-position: 0 0, 100% 0, 200% 0, 300% 0, 400% 0, 500% 0; /* Positions initiales pour les 6 images */
   animation: cycleBackground 50s linear infinite;
