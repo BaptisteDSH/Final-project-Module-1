@@ -4,7 +4,7 @@ class Player {
     this.left = left;
     this.top = top;
     this.width = 240;
-    this.height = 300;
+    this.height = 320;
     this.directionX = 0;
     this.directionY = 0;
     this.isOnGround = true;

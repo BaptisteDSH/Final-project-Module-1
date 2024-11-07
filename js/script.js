@@ -41,6 +41,18 @@ window.onload = function () {
         myGame.player.isShooting = false;
       }, 1000);
     }
+
+    if (event.code === "KeyB") {
+      myGame.score += 30;
+      console.log(myGame.score);
+      //update the DOM to have the new score
+      myGame.scoreElement.innerText = myGame.score;
+    }
+
+    if (event.code === "KeyH") {
+      myGame.lives++;
+      myGame.updateLifeHearts();
+    }
   });
 
   function startGame() {

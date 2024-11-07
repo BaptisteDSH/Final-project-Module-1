@@ -78,3 +78,8 @@ These folders contain all image and audio assets used in the game, including:
 3. **Throw**: Press `s` to throw shurikens at enemies in the way.
 4. **Avoid Obstacles**: Obstacles appear at various points, requiring quick reactions to dodge or defeat them.
 5. **Score**: Earn points by surviving longer and taking down enemies.
+
+## **\*\*\***Hide Bonus Features**\*\*\***
+
+- **Bonus Life**: Press `l` to +1 your lives.
+- **Bonus Score**: Press `b` to get a bonus of +30 points.

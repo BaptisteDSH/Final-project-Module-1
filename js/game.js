@@ -7,7 +7,7 @@ class Game {
     this.scoreElement = document.getElementById("score");
     this.livesElement = document.getElementById("lives");
     this.livesElement.src = "images/threeheart.png";
-    this.player = new Player(530, 180, "images/ninja.png");
+    this.player = new Player(530, 180, "images/new-ninja.png");
     this.height = 730;
     // this.width = 1450;
     this.obstacles = [];
@@ -25,8 +25,14 @@ class Game {
     this.gameOverMusic = new Audio("sounds/game-over.mp3");
     this.gameMusic = new Audio("sounds/music-background.mp3");
     this.hit = new Audio("sounds/hit.mp3");
+    this.damage = new Audio("sounds/damage.wav");
     this.break = new Audio("sounds/break.mp3");
+    this.monsterDead = new Audio("sounds/ monster.mp3");
+    this.beesDead = new Audio("sounds/bees.mp3");
+    this.beesDead.volume = 0.1;
+    this.monsterDead.volume = 0.1;
     this.hit.volume = 0.1;
+    this.damage.volume = 0.1;
     this.gameOverMusic.volume = 0.1;
     this.gameMusic.volume = 0.1;
   }
@@ -101,6 +107,7 @@ class Game {
         //subtract a life
         this.lives--;
         this.hit.play();
+        this.damage.play();
         if (this.lives === 0) {
           this.gameIsOver = true;
           console.log("loose");
@@ -140,6 +147,7 @@ class Game {
         //subtract a life
         this.lives--;
         this.hit.play();
+        this.damage.play();
         if (this.lives === 0) {
           this.gameIsOver = true;
           console.log("loose");
@@ -179,6 +187,7 @@ class Game {
         //subtract a life
         this.lives--;
         this.hit.play();
+        this.damage.play();
         if (this.lives === 0) {
           this.gameIsOver = true;
           console.log("loose");
@@ -218,6 +227,7 @@ class Game {
         //subtract a life
         this.lives--;
         this.hit.play();
+        this.damage.play();
         if (this.lives === 0) {
           this.gameIsOver = true;
           console.log("loose");
@@ -261,6 +271,7 @@ class Game {
         // check if the shuriken collided with an obstacle
         if (oneShuriken.didCollide(oneWall)) {
           this.break.play();
+          this.monsterDead.play();
           //splice removes object from the array
           this.shuriken.splice(shurikenIndex, 1);
           //.remove method removes the car the game screen
@@ -280,6 +291,7 @@ class Game {
         // check if the shuriken collided with an obstacle
         if (oneShuriken.didCollide(oneBees)) {
           this.break.play();
+          this.beesDead.play();
           //splice removes object from the array
           this.shuriken.splice(shurikenIndex, 1);
           //.remove method removes the car the game screen
